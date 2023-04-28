@@ -3,7 +3,7 @@
 -- 2. 
   SELECT * FROM hardware WHERE amount = 0;
 -- 3.
-  SELECT AVG(price) FROM hardware;
+  SELECT AVG(price) FROM hardware where title like '%монитор%';
 -- 4.
 SELECT * FROM hardware WHERE title LIKE '%Клавиатура%'
 order by price asc
