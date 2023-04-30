@@ -1,5 +1,5 @@
 -- 1.
-  SELECT count(*) from hardware;
+  SELECT SUM(amount) from hardware;
 -- 2. 
   SELECT * FROM hardware WHERE amount = 0;
 -- 3.
@@ -9,9 +9,10 @@ SELECT * FROM hardware WHERE title LIKE '%Клавиатура%'
 order by price asc
 ;
 -- 5.
-select title, amount, tag from hardware
-order by amount desc
-;
+SELECT tag, count(*)
+FROM hardware
+GROUP BY tag
+ORDER BY tag DESC;
 -- 6.
 select title, tag from hardware
 where tag like '%discount%'
