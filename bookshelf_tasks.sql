@@ -9,9 +9,11 @@ ORDER BY COUNT(books.id) DESC
 LIMIT 1;
 
 -- 2
-SELECT title, year 
+SELECT books.title, books.year 
 FROM books 
-WHERE year IS NOT NULL ORDER BY year LIMIT 5;
+WHERE year IS NOT NULL 
+ORDER BY books.year asc
+LIMIT 5;
 
 -- 3 
 SELECT count(*) as 'На полке в кабинете'
