@@ -16,7 +16,7 @@ WHERE directors.full_name = 'Фрэнсис Форд Коппола'
 -- 3
 SELECT COUNT(*) AS FilmName
 FROM movies
-WHERE year >= YEAR(CURRENT_DATE) - 20
+WHERE year >= YEAR(CURDATE()) - 20
 ;
 
 -- 4
