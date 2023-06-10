@@ -14,13 +14,13 @@ WHERE directors.full_name = 'Фрэнсис Форд Коппола'
 
 
 -- 3
-select count(*) AS FilmName
-from movies
-where year >= YEAR(NOW()) - 20
+SELECT COUNT(*) AS FilmName
+FROM movies
+WHERE year >= YEAR(CURRENT_DATE) - 20
 ;
 
 -- 4
-SELECT COUNT(*) AS AllGenresStive
+SELECT DISTINCT COUNT(*) AS AllGenresStive
 FROM movies
 JOIN genres ON genres.id = movies.genre_id
 JOIN directors ON directors.id = movies.director_id
@@ -74,8 +74,9 @@ WHERE companies.title = 'Warner Bros.'
 ;
 
 -- 9
-select COUNT(movies.title) AS QuantityMovies , AVG(movies.budget) AS Budget
+select COUNT(*) AS QuantityMovies , AVG(movies.budget) AS Budget
 from movies
+JOIN genres on genres.id = movies.genre_id
 group by genre_id
 ;
 
