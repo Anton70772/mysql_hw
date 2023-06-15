@@ -70,14 +70,13 @@ where shelves.title like 'верхняя%' or shelves.title like 'нижняя%'
 ;
 
 -- 8
--- update books 
--- set books.friends_id = 1 
--- where id =9
--- ;
-UPDATE books
-SET friends_id = (SELECT id FROM friends WHERE name = 'Иван Иванов')
-WHERE title = 'Божественная комедия'
-AND id IN (SELECT books_id FROM authors_books WHERE authors_id = (SELECT id FROM authors WHERE name = 'Данте Алигьери'));
+update books
+join authors_books on authors_books.books_id = books.id
+join authors on authors_books.authors_id= authors.id
+set books.friends_id = (select friends.id FROM friends WHERE friends.name = 'Ивано Иван')
+WHERE authors.name = 'Данте Алигьери' AND books.title = 'Божественная комедия'
+and books.id >0
+;
 
 -- 9
 INSERT INTO `books` (`title`, `year`, `shelves_id`)
